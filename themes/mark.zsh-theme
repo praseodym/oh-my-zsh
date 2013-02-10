@@ -9,6 +9,7 @@ PROMPT_SUCCESS_COLOR=$FG[117]
 PROMPT_FAILURE_COLOR=$FG[124]
 PROMPT_VCS_INFO_COLOR=$FG[242]
 PROMPT_PROMPT=%(!.%{$fg[red]%}.%{$FG[117]%})
+PROMPT_SSH_COLOR=$FG[033]
 GIT_DIRTY_COLOR=$FG[133]
 GIT_CLEAN_COLOR=$FG[118]
 GIT_PROMPT_INFO=$FG[012]
@@ -17,7 +18,7 @@ function virtualenv_info {
     [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`') '
 }
 
-PROMPT='%{$PROMPT_SUCCESS_COLOR%}%~%{$reset_color%} %{$GIT_PROMPT_INFO%}$(git_prompt_info)%{$GIT_DIRTY_COLOR%}$(git_prompt_status)$(virtualenv_info)${SSH_TTY:+ [%n@%m]}%{$reset_color%}%{$PROMPT_PROMPT%}$%{$reset_color%} '
+PROMPT='%{$PROMPT_SUCCESS_COLOR%}%~ %{$PROMPT_SSH_COLOR%}${SSH_TTY:+[%n@%m] }%{$reset_color%}%{$GIT_PROMPT_INFO%}$(git_prompt_info)%{$GIT_DIRTY_COLOR%}$(git_prompt_status)$(virtualenv_info)%{$reset_color%}%{$PROMPT_PROMPT%}$%{$reset_color%} '
 SPROMPT="$fg[red]%R$reset_color → $fg[green]%r$reset_color? (Yes, No, Abort, Edit) "
 
 #RPS1="${return_code}"
