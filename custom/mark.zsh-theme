@@ -14,7 +14,7 @@ GIT_DIRTY_COLOR=$FG[133]
 GIT_CLEAN_COLOR=$FG[118]
 GIT_PROMPT_INFO=$FG[012]
 
-PROMPT='%{$PROMPT_SUCCESS_COLOR%}%~ %{$PROMPT_SSH_COLOR%}${SSH_TTY:+[%n@%m] }%{$reset_color%}%{$GIT_PROMPT_INFO%}$(git_prompt_info)%{$GIT_DIRTY_COLOR%}$(git_prompt_status)%{$reset_color%}%{$PROMPT_PROMPT%}%#%{$reset_color%} '
+PROMPT='%(0?.%{$PROMPT_SUCCESS_COLOR%}.%{$PROMPT_FAILURE_COLOR%})%~ %{$PROMPT_SSH_COLOR%}${SSH_TTY:+[%n@%m] }%{$reset_color%}%{$GIT_PROMPT_INFO%}$(git_prompt_info)%{$GIT_DIRTY_COLOR%}$(git_prompt_status)%{$reset_color%}%{$PROMPT_PROMPT%}%#%{$reset_color%} '
 SPROMPT="$fg[red]%R$reset_color → $fg[green]%r$reset_color? (Yes, No, Abort, Edit) "
 
 #RPS1="${return_code}"
